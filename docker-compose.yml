@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  main:
+    container_name: main
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/app/src
+    command: npm run start:dev
+    ports:
+      - '4000:4000'
+    depends_on:
+      - db
+    restart: unless-stopped
+  db:
+    container_name: postgres
+    image: postgres:13
+    environment:
+      POSTGRES_USER: $TYPEORM_USERNAME
+      POSTGRES_PASSWORD: $TYPEORM_PASSWORD
+      POSTGRES_DB: $TYPEORM_DATABASE
+      PG_DATA: /var/lib/postgresql/data
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    restart: always
+
+volumes:
+  pgdata:
