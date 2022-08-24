@@ -12,10 +12,10 @@
       "start:dev": "cross-env NODE_ENV=development nest start --watch",
       "start:debug": "nest start --debug --watch",
       "start:prod": "node dist/main",
-      "compose": "docker compose up -d",
-      "typeorm": "typeorm-ts-node-commonjs -d src/config/data-source.ts",
-      "mig:create": "typeorm-ts-node-commonjs migration:create src/migrations/mig",
-      "mig:generate": "npm run typeorm migration:generate src/migrations/mig",
+      "compose:dev": "docker compose -f docker-compose.dev.yml up -d",
+      "typeorm": "typeorm-ts-node-commonjs -d config/data-source.ts",
+      "mig:c": "typeorm-ts-node-commonjs migration:create migrations/mig",
+      "mig:g": "npm run typeorm migration:generate migrations/mig",
       "mig:up": "npm run typeorm migration:run",
       "mig:down": "npm run typeorm migration:revert"
    },
@@ -25,7 +25,10 @@
       "@nestjs/core": "^9.0.0",
       "@nestjs/platform-express": "^9.0.0",
       "@nestjs/sequelize": "^9.0.0",
+      "@nestjs/swagger": "^6.0.5",
       "@nestjs/typeorm": "^9.0.0",
+      "class-transformer": "^0.5.1",
+      "class-validator": "^0.13.2",
       "cross-env": "^7.0.3",
       "dotenv": "^16.0.1",
       "pg": "^8.4.0",
@@ -35,6 +38,7 @@
       "rxjs": "^7.2.0",
       "sequelize": "^6.21.3",
       "sequelize-typescript": "^2.1.3",
+      "swagger-ui-express": "^4.5.0",
       "typeorm": "0.3.7"
    },
    "devDependencies": {

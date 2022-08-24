@@ -1,5 +1,6 @@
 import { config } from 'dotenv';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import { entities } from '../src/app.entities';
 
 config();
 
@@ -11,6 +12,9 @@ class DatabaseConfig {
   public password: string = process.env.TYPEORM_PASSWORD;
   public database: string = process.env.TYPEORM_DATABASE;
   public port = Number(process.env.TYPEORM_PORT);
+  public entities = entities;
+  // public synchronize = true;
+  public logging = false;
 }
 
-export default new DatabaseConfig();
+export const databaseConfig = new DatabaseConfig();
