@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, IsString, Length } from 'class-validator';
-import { messages } from '../../libs/messages';
-import { swaggerPropertyOptions as swagger } from '../../libs/swagger-property-options';
+import { messages } from '../../../libs/messages';
+import { swaggerPropertyOptions as swagger } from '../../../libs/swagger-property-options';
 
 export class CreateUserDto {
   @ApiProperty(swagger.user.email)

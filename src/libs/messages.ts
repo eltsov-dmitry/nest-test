@@ -8,3 +8,10 @@ export enum messages {
   UserNotFound = 'Пользователь не найден',
   ProjectNotFound = 'Проект не найден',
 }
+
+export enum fields {
+  title = 'Заголовок',
+  user_id = 'ID пользователя',
+  name_male = 'Имя мужчины',
+  name_female = 'Имя женщины',
+}

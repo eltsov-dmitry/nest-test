@@ -1,7 +1,15 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../../users/entities/user.entity';
-import { swaggerPropertyOptions as swagger } from '../../libs/swagger-property-options';
+import { swaggerPropertyOptions as swagger } from '../../../libs/swagger-property-options';
+import { BlockTop } from '../../blocks/block-top/entities/block-top.entity';
 
 @Entity('project')
 export class Project {
@@ -23,4 +31,8 @@ export class Project {
 
   @ManyToOne(() => User, (user) => user.id, { onDelete: 'CASCADE' })
   user: User;
+
+  @OneToOne(() => BlockTop)
+  @JoinColumn()
+  project: BlockTop;
 }

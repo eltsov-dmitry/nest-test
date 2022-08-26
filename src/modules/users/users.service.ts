@@ -4,9 +4,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { UpdateUserDto } from './dto/update.user.dto';
-import { not, toBool } from '../libs/helpers';
-import { MessageException } from '../exceptions/message.exception';
-import { messages } from '../libs/messages';
+import { not, toBool } from '../../libs/helpers';
+import { MessageException } from '../../exceptions/message.exception';
+import { messages } from '../../libs/messages';
 
 @Injectable()
 export class UsersService {
@@ -57,6 +57,6 @@ export class UsersService {
   }
 
   async isEmailExists(email: string) {
-    return toBool(this.userRepository.findOneBy({ email }));
+    return toBool(await this.userRepository.findOneBy({ email }));
   }
 }

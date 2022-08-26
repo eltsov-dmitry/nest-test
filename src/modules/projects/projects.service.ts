@@ -5,9 +5,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Project } from './entities/project.entity';
 import { UsersService } from '../users/users.service';
-import { not, toBool } from '../libs/helpers';
-import { MessageException } from '../exceptions/message.exception';
-import { messages } from '../libs/messages';
+import { not, toBool } from '../../libs/helpers';
+import { MessageException } from '../../exceptions/message.exception';
+import { messages } from '../../libs/messages';
 
 @Injectable()
 export class ProjectsService {

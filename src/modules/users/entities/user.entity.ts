@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 import { Project } from '../../projects/entities/project.entity';
-import { swaggerPropertyOptions as swagger } from '../../libs/swagger-property-options';
+import { swaggerPropertyOptions as swagger } from '../../../libs/swagger-property-options';
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 @Entity('user')

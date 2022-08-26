@@ -13,7 +13,6 @@ class DatabaseConfig {
   public database: string = process.env.TYPEORM_DATABASE;
   public port = Number(process.env.TYPEORM_PORT);
   public entities = entities;
-  // public synchronize = true;
   public logging = false;
 }
 
