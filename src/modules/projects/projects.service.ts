@@ -17,9 +17,12 @@ export class ProjectsService {
     private readonly usersService: UsersService,
   ) {}
 
-  async create({ user_id, title }: CreateProjectDto) {
-    const user = await this.usersService.findOneById(user_id);
-    const project = await this.projectRepository.save({ title, user });
+  async create(createProjectDto: CreateProjectDto) {
+    const user = await this.usersService.findOneById(createProjectDto.user_id);
+    const project = await this.projectRepository.save({
+      ...createProjectDto,
+      user,
+    });
     return this.findOne(project.id);
   }
 

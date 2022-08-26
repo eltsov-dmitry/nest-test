@@ -23,11 +23,11 @@ export class Project {
 
   @ApiProperty(swagger.project.name_male)
   @Column()
-  nameMale: string;
+  name_male: string;
 
   @ApiProperty(swagger.project.name_female)
   @Column()
-  nameFemale: string;
+  name_female: string;
 
   @ManyToOne(() => User, (user) => user.id, { onDelete: 'CASCADE' })
   user: User;
